@@ -4,10 +4,10 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   // String
-  let nome: string = "Fernando";
+  let nome: string = "Gabriel";
 
   // Number
-  let idade: number = 17;
+  let idade: number = 29;
 
   // Boolean
   let status: boolean = true; 
@@ -16,7 +16,7 @@ export default function App() {
   let frutas: string[] = ["Banana", "Maçã", "Uva"];
 
   // Tupla
-  let pessoa: [string, number, string] = ["Fernando", 17, "Manaus"];
+  let pessoa: [string, number, string] = ["Gabriel", 20, "Manaus"];
 
   // Objeto
   type Carro = {
@@ -53,25 +53,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffffff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   texto:{
     fontSize: 24,
-    color: "#000"
+    color: "#f00"
   },
 
   baixo: {
-    backgroundColor: '#f8d403',
-    height: 200,
+    backgroundColor: '#f8d403'
   },
 
   alto: {
-    backgroundColor: '#b71bf9',
-    height: 200,
+    backgroundColor: '#b71bf9'
   }
 
 });
-
-
