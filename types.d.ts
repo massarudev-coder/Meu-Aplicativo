@@ -22,6 +22,7 @@ declare module 'react-native' {
 
   export const View: React.FC<any>;
   export const Text: React.FC<any>;
+  export const TextInput: React.FC<any>;
 }
 
 declare module '@expo/metro-runtime' {
