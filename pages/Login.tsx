@@ -1,75 +1,120 @@
 // imports
-import {View, Text, StyleSheet, TextInput} from 'react-native';
+import { useState } from "react";
+import { View, Text, StyleSheet, TextInput } from "react-native";
+import Feather from '@expo/vector-icons/Feather';
 
+// Função principal
+export default function Login() {
+  // Ensinar sobre estados e fazer o input
+  const [email, setEmail] = useState<string>("");
+  const [senha, setSenha] = useState<string>("");
+  const [exibir, setExibir] = useState<boolean>(false);
 
+  const emailCerto = 'teste@gmail.com';
+  const senhaCerta = 'teste123';
 
+  return (
+    <View style={styles.container}>
+      <Text style={styles.texto}>Funcionou!</Text>
 
+      <TextInput
+        style={styles.inputEmail}
+        placeholder="Email"
+        placeholderTextColor={"#c1c1c1"}
+        onChangeText={setEmail}
+        value={email}
+      />
 
+      <View style={styles.viewInputSenha}>
+        <TextInput
+          style={styles.inputSenha}
+          placeholder="Senha"
+          placeholderTextColor={"#c1c1c1"}
+          onChangeText={setSenha}
+          value={senha}
+          maxLength={8}
+          secureTextEntry={exibir ? false : true}
+        />
 
-// Função Principal
-export default function Login(){
-    function alertar(){
-        alert("Botão pressionado!");
-    }
-    return(
-        <View style={styles.container}>
-            <Text style={styles.texto}>Funcionou!!</Text>
-            <TextInput style={styles.inputEmail} placeholder="Digite seu email" />
-            {/* <TextInput style={styles.inputSenha} placeholder="Digite sua senha" secureTextEntry /> */}
+        {exibir 
+            ? <Feather onPress={()=>setExibir(!exibir)} name="eye" size={24} color="black" style={{marginRight: 10}} />
+            : <Feather onPress={()=>setExibir(!exibir)} name="eye-off" size={24} color="black" style={{marginRight: 10}}/>
+        }
+      </View>
 
+      {email === emailCerto && senha === senhaCerta && (
+        <Text style={styles.sucesso}>Email e senhas conferem.</Text>
+      )}
 
+      {(email !== emailCerto || senha !== senhaCerta) && email !== '' && senha !== '' && (
+        <Text style={styles.erro}>Email ou senha incorretos.</Text>
+      )}
 
-
-            <Text style={styles.texto2}>
-                Primeiro acesso? <Text onPress={alertar} style={styles.destaque}>Cadastre-se.</Text>
-            </Text>
-        </View>
-
-    );
+      <Text style={styles.texto2}>
+        Primeiro acesso?{" "}
+        <Text onPress={() => alert("Funcionou")} style={styles.destaque}>
+          Cadastre-se.
+        </Text>
+      </Text>
+    </View>
+  );
 }
-
 
 // Style
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#ffffff',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 20,
-    },
+  container: {
+    flex: 1,
+    backgroundColor: "#64d4f9",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+    gap: 10,
+  },
+  texto: {
+    fontSize: 32,
+    fontWeight: "bold",
+  },
+  texto2: {
+    fontSize: 24,
+  },
+  destaque: {
+    fontWeight: "bold",
+    color: "#f00",
+  },
 
-    texto:{
-        fontSize: 32,
-        fontWeight: 'bold',
-    },
+  inputEmail: {
+    backgroundColor: "#fff",
+    width: "100%",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 10,
+    fontSize: 24,
+  },
 
-    texto2: {
-        fontSize: 24,
+  viewInputSenha:{
+    backgroundColor: "#fff",
+    width: "100%",
+    borderRadius: 10,
+    flexDirection:  'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
 
-    },
+  inputSenha:{
+    fontSize: 24,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 10,
+  },
 
-    destaque: {
-        fontweight: 'bold',
-        color: '#0000ff',
-    },
+  sucesso:{
+    fontSize: 24,
+    color: '#079a11'
+  },
 
-    inputEmail: {
-        backgroundColor: '#f0f0f0',
-        width: '50%',
-        paddingHorizontal: 10,
-        paddingVertical: 5,
-        borderRadius: 10,
-        fontSize: 24,
-    },
-
-    // inputSenha: {
-    //     backgroundColor: '#f0f0f0',
-    //     width: '50%',
-    //     paddingHorizontal: 10,
-    //     paddingVertical: 5,
-    //     borderRadius: 10,
-    //     fontSize: 24,
-    // },
-
+  erro:{
+    fontSize: 24,
+    color: '#f00'
+  }
 });
+

@@ -1,4 +1,8 @@
 declare module 'react' {
+  export function useState<T>(
+    initialValue: T,
+  ): [T, (value: T | ((currentValue: T) => T)) => void];
+
   export namespace React {
     interface FC<P = {}> {
       (props: P): ReactElement<any, any> | null;
