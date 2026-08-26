@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
 
   inputEmail: {
-    backgroundColor: "#fff",
+    backgroundColor: "#000000",
     width: "100%",
     paddingHorizontal: 10,
     paddingVertical: 5,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   },
 
   viewInputSenha:{
-    backgroundColor: "#fff",
+    backgroundColor: "#0d0c0c",
     width: "100%",
     borderRadius: 10,
     flexDirection:  'row',

@@ -1,31 +1,21 @@
-import '@expo/metro-runtime'
+import '@expo/metro-runtime';
 
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
-  // String
   let nome: string = "Gabriel";
-
-  // Number
   let idade: number = 29;
-
-  // Boolean
-  let status: boolean = true; 
-
-  // Array
+  let status: boolean = true;
   let frutas: string[] = ["Banana", "Maçã", "Uva"];
-
-  // Tupla
   let pessoa: [string, number, string] = ["Gabriel", 20, "Manaus"];
 
-  // Objeto
   type Carro = {
     marca: string,
     ano: number,
-    cor?: string // A interrogação indica que a propriedade é opcional
+    cor?: string
   }
 
-  let carro1 : Carro = {
+  let carro1: Carro = {
     marca: "Fiat",
     ano: 2020,
     cor: "Preto"
@@ -43,11 +33,9 @@ export default function App() {
         <Text style={styles.texto}>Marca: {carro1.marca}</Text>
         <Text style={styles.texto}>{`Marca: ${carro1.marca}`}</Text>
       </View>
-    </View>    
-    
+    </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -56,18 +44,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
-  texto:{
+  texto: {
     fontSize: 24,
     color: "#f00"
   },
-
   baixo: {
     backgroundColor: '#f8d403'
   },
-
   alto: {
     backgroundColor: '#b71bf9'
   }
-
 });
