@@ -20,7 +20,7 @@ export default function Login() {
       <TextInput
         style={styles.inputEmail}
         placeholder="Email"
-        placeholderTextColor={"#c1c1c1"}
+        placeholderTextColor={"#ffffff"}
         onChangeText={setEmail}
         value={email}
       />
@@ -29,7 +29,7 @@ export default function Login() {
         <TextInput
           style={styles.inputSenha}
           placeholder="Senha"
-          placeholderTextColor={"#c1c1c1"}
+          placeholderTextColor={"#ffffff"}
           onChangeText={setSenha}
           value={senha}
           maxLength={8}
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
   texto: {
     fontSize: 32,
     fontWeight: "bold",
+    color: "#000000",
   },
   texto2: {
     fontSize: 24,
